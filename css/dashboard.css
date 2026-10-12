@@ -1,0 +1,340 @@
+/* ==========================================
+   ESTILOS EXCLUSIVOS - DASHBOARD DE ZANTIS
+   ========================================== */
+:root {
+    --bg-dark: #090d16;        
+    --navbar-bg: #0d1322;      
+    --card-bg: #131b2e;        
+    --input-bg: #1c273e;       
+    --border-color: #2d3b59;   
+    
+    --primary: #10b981;        
+    --primary-hover: #059669;  
+    --accent: #38bdf8;         
+    
+    --text-color: #f1f5f9;     
+    --text-muted: #94a3b8;     
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Barra de Navegación del Dashboard */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--navbar-bg);
+    padding: 1.2rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar .logo h1 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 1.8rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: var(--primary);
+}
+
+.btn-logout {
+    background-color: #ef4444 !important;
+    color: #ffffff !important;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+}
+
+.btn-logout:hover {
+    background-color: #dc2626 !important;
+}
+
+/* Contenedor y Perfil */
+.dashboard-container {
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem;
+}
+
+.profile-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-avatar {
+    width: 70px;
+    height: 70px;
+    background: var(--input-bg);
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.user-role-badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--primary);
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 0.3rem 0;
+}
+
+.user-id {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.profile-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-item label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.detail-item p {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary);
+    color: #090d16;
+    padding: 0.7rem 1.6rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    color: #ffffff;
+}
+
+/* Secciones y Tarjetas de Vacantes */
+.dashboard-section {
+    margin-bottom: 3rem;
+}
+
+.section-subtitle-dash {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    border-left: 4px solid var(--primary);
+    padding-left: 0.8rem;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.job-card {
+    background: var(--card-bg);
+    padding: 1.8rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.badge {
+    align-self: flex-start;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.badge-company {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--primary);
+}
+
+.job-card h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.company-name {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.job-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.location {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.btn-small {
+    background: var(--primary);
+    color: #090d16;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+    background: var(--primary-hover);
+    color: #ffffff;
+}
+
+/* Tabla de Estado de Solicitudes */
+.table-responsive {
+    overflow-x: auto;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.status-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.status-table th, .status-table td {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.status-table th {
+    background-color: var(--input-bg);
+    color: #ffffff;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status-pending {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+}
+
+.status-accepted {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--primary);
+}
+
+.btn-action {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--accent);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-action:hover {
+    border-color: var(--accent);
+    background: var(--input-bg);
+}
+
+/* Footer del Dashboard */
+.footer {
+    background-color: var(--navbar-bg);
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.footer-bottom {
+    background-color: #060910;
+    text-align: center;
+    padding: 1.2rem 1rem;
+}
+
+.footer-bottom p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}

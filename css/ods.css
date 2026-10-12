@@ -1,0 +1,223 @@
+/* ==========================================
+   CONFIGURACIÓN Y DESPLAZAMIENTO FLUIDO
+   ========================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================
+   PALETA DE COLORES OSCURA (DARK MODE) - ZANTIS
+   ========================================== */
+:root {
+    --bg-dark: #090d16;        /* Fondo general súper oscuro */
+    --navbar-bg: #0d1322;      /* Barra superior oscura */
+    --card-bg: #131b2e;        /* Tarjeta contenedora */
+    --input-bg: #1c273e;       /* Fondo de elementos/badges */
+    --border-color: #2d3b59;   /* Bordes sutiles */
+    
+    --primary: #10b981;        /* Verde Neón / Esmeralda llamativo */
+    --primary-hover: #059669;  /* Verde más oscuro al pasar el mouse */
+    --accent: #38bdf8;         /* Azul Cian para detalles/números ODS */
+    
+    --text-color: #f1f5f9;     /* Texto principal claro */
+    --text-muted: #94a3b8;     /* Texto secundario gris */
+}
+
+/* Estilos Globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+}
+
+/* Barra de Navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--navbar-bg);
+    padding: 1.2rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar .logo h1 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 1.8rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: var(--primary);
+}
+
+.btn-nav-login {
+    background-color: var(--primary);
+    color: #090d16 !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-nav-login:hover {
+    background-color: var(--primary-hover);
+    color: #ffffff !important;
+}
+
+/* Encabezado Principal (Hero ODS) */
+.hero {
+    background: radial-gradient(circle at top, #131b2e 0%, #090d16 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* Sección ODS / Tarjetas */
+.ods-section {
+    padding: 4rem 0;
+}
+
+.ods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+}
+
+.ods-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.ods-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 25px rgba(16, 185, 129, 0.15);
+}
+
+.ods-number {
+    display: inline-block;
+    background: var(--input-bg);
+    color: var(--accent);
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    border: 1px solid var(--border-color);
+}
+
+.ods-card h3 {
+    font-size: 1.35rem;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+}
+
+.ods-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.full-width-card {
+    grid-column: 1 / -1;
+}
+
+/* Botón Volver al Inicio */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary);
+    color: #090d16;
+    padding: 0.9rem 2.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Diseños Adaptables para Móviles */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .ods-grid {
+        grid-template-columns: 1fr;
+    }
+}
