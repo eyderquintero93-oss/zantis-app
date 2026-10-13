@@ -1,18 +1,21 @@
 <?php
-// Datos de conexión asignados por InfinityFree
-$host = "sqlxxx.infinityfree.com";        // Reemplaza por tu Host MySQL (Ej: sql200.epizy.com)
-$usuario = "if0_XXXXXXXX";                // Reemplaza por tu Usuario de MySQL de InfinityFree
-$password = "TU_CONTRASEÑA_DE_HOSTING";   // Reemplaza por la contraseña de tu cuenta de InfinityFree
-$base_datos = "if0_XXXXXXXX_zantis_db";   // Reemplaza por el Nombre Completo de tu BD remota
+// Configuración de la base de datos MySQL
 
-// Crear la conexión con la base de datos MySQL
-$conexion = new mysqli($host, $usuario, $password, $base_datos);
+// Reemplaza los valores entre comillas con las credenciales reales de tu base de datos remota:
+$host = "DATOS_DE_TU_HOST";          // Ejemplo: mysql-384b91b5-factra0000.h.aivencloud.com o el host de tu BD
+$user = "DATOS_DE_TU_USUARIO";       // Ejemplo: avnadmin, root, o tu usuario de BD
+$pass = "DATOS_DE_TU_CONTRASEÑA";    // La contraseña de tu base de datos
+$db   = "NOMBRE_DE_TU_BASE_DATOS";   // Ejemplo: zantis_db o defaultdb
+$port = 3306;                         // Puerto MySQL (3306 por defecto, o el asignado por tu proveedor)
 
-// Verificar si hubo algún error en la conexión
+// Creación de la conexión utilizando la extensión mysqli
+$conexion = new mysqli($host, $user, $pass, $db, $port);
+
+// Verificar la conexión
 if ($conexion->connect_error) {
     die("Error de conexión a la base de datos: " . $conexion->connect_error);
 }
 
-// Configurar el conjunto de caracteres a UTF-8 para soportar acentos y la 'ñ'
+// Establecer conjunto de caracteres a utf8 para evitar problemas de tildes y caracteres especiales
 $conexion->set_charset("utf8");
 ?>
