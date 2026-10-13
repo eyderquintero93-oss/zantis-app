@@ -1,32 +1,14 @@
 <?php
-// Incluir la conexión con supresión de errores
-require_once 'conexion.php';
-
 $mensaje = "";
 
 // Procesar el formulario cuando se envía por POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $correo = isset($_POST['correo']) ? trim($_POST['correo']) : '';$clave  = isset($_POST['clave']) ? trim($_POST['clave']) : '';
+    $correo = isset($_POST['correo']) ? trim($_POST['correo']) : '';
+    $clave  = isset($_POST['clave']) ? trim($_POST['clave']) : '';
 
     if (!empty($correo) && !empty($clave)) {
-        // Verificar si la conexión a la base de datos está disponible
-        if (isset($conexion) && $conexion !== null) {$sql = "SELECT * FROM usuarios WHERE correo = ? AND clave = ?";
-            if ($stmt = $conexion->prepare($sql)) {
-                $stmt->bind_param("ss", $correo, $clave);$stmt->execute();
-                $resultado =$stmt->get_result();
-
-                if ($resultado->num_rows > 0) {$mensaje = "<div class='alerta exito'>¡Inicio de sesión exitoso! Bienvenido.</div>";
-                } else {
-                    $mensaje = "<div class='alerta error'>Correo o contraseña incorrectos.</div>";
-                }
-                $stmt->close();
-            } else {
-                $mensaje = "<div class='alerta error'>Error al procesar la consulta en la base de datos.</div>";
-            }
-        } else {
-            // Modo demostración si no hay base de datos remota activa
-            $mensaje = "<div class='alerta info'>Modo Demostración: Conexión a la base de datos no disponible.</div>";
-        }
+        // Simulación de acceso para que la interfaz web funcione sin bloqueos en Render
+        $mensaje = "<div class='alerta info'>Modo de demostración activo en la nube.</div>";
     } else {
         $mensaje = "<div class='alerta error'>Por favor completa todos los campos.</div>";
     }
@@ -110,3 +92,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .btn-submit:hover {
             background: #1d4ed8;
         }
+        .alerta {
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .alerta.error { background: #7f1d1d; color: #fca5a5; }
+        .alerta.exito { background: #065f46; color: #6ee7b7; }
+        .alerta.info  { background: #1e3a8a; color: #93c5fd; }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-link:hover { color: #ffffff; }
+    </style>
+</head>
+<body>
+
+<div class="login-card">
+    <h2>ZANTIS</h2>
+    <p>Inicia sesión en tu cuenta</p>
+
+    <?php echo $mensaje; ?>
+
+    <form action="login.php" method="POST">
+        <div class="form-group">
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="clave">Contraseña</label>
+            <input type="password" id="clave" name="clave" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Ingresar</button>
+    </form>
+
+    <a href="../html/index.html" class="back-link">← Volver al inicio</a>
+</div>
+
+</body>
+</html>
